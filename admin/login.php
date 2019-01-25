@@ -1,8 +1,10 @@
-<form class="form-signin" action="<?php echo $self; ?>" method='post'>
-  <img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="text" name="username" id="username" class="form-control" placeholder="Email address" required="" autofocus="">
+<form class="form-signin text-center" action="<?php echo $self; ?>" method='post'>
+    <a href="/">
+        <img class="mb-4" src="../assets/img/logo.svg" alt="" width="180" >
+    </a>
+
+  <label for="inputEmail" class="sr-only">Login</label>
+  <input type="text" name="username" id="username" class="form-control" placeholder="Login" required="" autofocus="">
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
   <div class="checkbox mb-3">
