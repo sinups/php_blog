@@ -2,7 +2,7 @@
         <div class="container">
             
             <!-- END Header (navbar) -->
-            <table id="admin_table" class="table table-striped table-responsive">
+            <table id="admin_table" class="table table-striped table-responsive w-100">
                 <thead>
                 <tr>
                     <th>Дата</th>

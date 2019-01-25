@@ -3,27 +3,26 @@
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-md-8">
-            <div class="row">
+        
+        <div class="col-md-12 blog-main">
+            
+            <div class="rows">
                 
                 <!-- Blog Post -->
-                <div class="card my-4">
-                    
-                    <div class="card-body">
-                        <h2 class="card-title"><?=$article['title']?></h2>
-                        <p class="card-text"><?=$article['content']?></p>
-                        
-                    </div>
-                    <div class="card-footer text-muted">
-                        Опубликованно: <?=$article['date']?> by <a href="#">Andrei Cojocari</a>
-                    </div>
+                
+                <div class="blog-post">
+                    <h2 class="blog-post-title"><?=$article['title']?></h2>
+                    <p class="blog-post-meta"><?=$article['date']?> <a href="#"> Andrei C.</a></p>
+                    <?=articles_intro($article['content'])?>
                 </div>
-               
+                
+                
+                
             </div>
         </div>
-        <?php include "sidebar.php" ?>
+        
     </div>
+</div>
     <!-- /.container -->
     
-    <?php include "footer.php" ?>
-
+<?php include "footer.php" ?>
