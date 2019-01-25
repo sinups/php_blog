@@ -6,3 +6,4 @@
     $articles = articles_all($link);
     include("views/articles.php");
 ?>
+

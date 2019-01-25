@@ -1,4 +1,5 @@
 <?php include "../admin/admin_header.php" ?>
+<?php include "../admin/navbar.php" ?>
 <div class="container">
 
 <div class="col-md-12 my-4">

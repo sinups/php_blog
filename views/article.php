@@ -12,7 +12,7 @@
                 
                 <div class="blog-post">
                     <h2 class="blog-post-title"><?=$article['title']?></h2>
-                    <p class="blog-post-meta"><?=$article['date']?> <a href="#"> Andrei C.</a></p>
+                    <p class="blog-post-meta"><?=$article['date']?> <a href="#">Andrei C. </a></p>
                    <?=$article['content']?>
                 </div>
                 

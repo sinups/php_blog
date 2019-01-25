@@ -1,42 +1,80 @@
-<?php 
-    require_once("../database.php");
-    require_once("../models/articles.php");
-        
-    $link = db_connect();
-    
-    $article['title']='';
-    $article['date']='';
-    $article['content']='';
+<?php
 
-    if(isset($_GET['action']))
-        $action = $_GET['action'];
-    else
-        $action = "";
-    
-    if($action == "add"){
-        if(!empty($_POST)){
-            articles_new($link, $_POST['title'], $_POST['date'], $_POST['content']);
-            header("Location: index.php");
-        }
-        include("../views/article_admin.php");
-    }else if($action == 'edit'){
-        if(!isset($_GET['id']))
-         header('Location: index.php');
-        $id = (int)$_GET['id'];
-        if(!empty($_POST) && $id > 0) {
-            articles_edit($link, $id, $_POST['title'], $_POST['date'], $_POST['content']);
-            header("Location: index.php");
-        }
-        
-        $article = article_get($link, $id);
-        include("../views/article_admin.php");  
-    }else if($action == 'delete'){
-        $id = $_GET['id'];
-        $article = articles_delete($link, $id);
-        header('Location: index.php');
+session_start();
+
+// ***************************************** //
+// **********	DECLARE VARIABLES  ********** //
+// ***************************************** //
+
+$username = 'root';
+$password = 'qwerty';
+
+$random1 = 'secret_key1';
+$random2 = 'secret_key2';
+
+$hash = md5($random1.$pass.$random2);
+
+$self = $_SERVER['REQUEST_URI'];
+
+
+// ************************************ //
+// **********	USER LOGOUT  ********** //
+// ************************************ //
+
+if(isset($_GET['logout']))
+{
+    unset($_SESSION['login']);
+}
+
+
+// ******************************************* //
+// **********	USER IS LOGGED IN	********** //
+// ******************************************* //
+
+if (isset($_SESSION['login']) && $_SESSION['login'] == $hash) {
+    require_once("admin_main.php");
+    ?>
+    <?php
+}
+
+
+// *********************************************** //
+// **********	FORM HAS BEEN SUBMITTED	********** //
+// *********************************************** //
+
+else if (isset($_POST['submit'])) {
+
+    if ($_POST['username'] == $username && $_POST['password'] == $password){
+
+        //IF USERNAME AND PASSWORD ARE CORRECT SET THE LOG-IN SESSION
+        $_SESSION["login"] = $hash;
+        header("Location: $_SERVER[PHP_SELF]");
+
+    } else {
+
+        // DISPLAY FORM WITH ERROR
+        display_login_form();
+        echo '<p>Username or password is invalid</p>';
+
     }
-    else{
-        $articles = articles_all($link);
-        include("../views/articles_admin.php");        
-    }
-?>
+}
+
+
+// *********************************************** //
+// **********	SHOW THE LOG-IN FORM	********** //
+// *********************************************** //
+
+else {
+
+    display_login_form();
+
+}
+
+
+function display_login_form(){
+    require_once("admin_header.php");
+    require_once("login.php"); ?>
+
+<?php } ?>
+
+

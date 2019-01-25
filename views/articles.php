@@ -4,16 +4,14 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 blog-main">
-            <h3 class="pb-3 mb-4 font-italic border-bottom">
-            category:Development
-          </h3>
+
             <div class="rows">
                 
                 <!-- Blog Post -->
                 <?php foreach($articles as $article): ?>
                  <div class="blog-post">
                     <h2 class="blog-post-title"><a href="/article.php?id=<?=$article['id']?>"><?=$article['title']?></a></h2>
-                    <p class="blog-post-meta"><?=$article['date']?><a href="#">Andrei C.</a></p>
+                    <p class="blog-post-meta"><?=$article['date']?> <a href="#"> Andrei C.</a></p>
 
                     <?=articles_intro($article['content'])?>
                 </div>
