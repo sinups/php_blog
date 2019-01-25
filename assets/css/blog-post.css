@@ -133,7 +133,19 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 1px solid #e5e5e5;
 }
 
-
+.errot-messages {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 15px;
+  background: #d54747;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 330px;
+  text-align: center;
+  color: #fff;
+}
 .form-signin {
   width: 100%;
   max-width: 330px;

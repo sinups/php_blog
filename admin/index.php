@@ -54,7 +54,7 @@ else if (isset($_POST['submit'])) {
 
         // DISPLAY FORM WITH ERROR
         display_login_form();
-        echo '<p>Username or password is invalid</p>';
+        echo '<p class="errot-messages">Username or password is invalid</p>';
 
     }
 }
